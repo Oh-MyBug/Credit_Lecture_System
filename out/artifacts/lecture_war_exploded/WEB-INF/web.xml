@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <servlet>
+        <servlet-name>UserServlet</servlet-name>
+        <servlet-class>com.ohmybug.web.UserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserServlet</servlet-name>
+        <url-pattern>/userServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LectureServlet</servlet-name>
+        <servlet-class>com.ohmybug.web.LectureServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LectureServlet</servlet-name>
+        <url-pattern>/admin/lectureServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LocationServlet</servlet-name>
+        <servlet-class>com.ohmybug.web.LocationServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LocationServlet</servlet-name>
+        <url-pattern>/admin/locationServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>TypeServlet</servlet-name>
+        <servlet-class>com.ohmybug.web.TypeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TypeServlet</servlet-name>
+        <url-pattern>/admin/typeServlet</url-pattern>
+    </servlet-mapping>
+</web-app>

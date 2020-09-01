@@ -40,4 +40,9 @@ public class TypeServiceImpl implements TypeService {
     public List<Type> queryTypes() {
         return typeDao.queryTypes();
     }
+
+    @Override
+    public Integer queryIdByType(String type) {
+        return typeDao.queryIdByType(type);
+    }
 }

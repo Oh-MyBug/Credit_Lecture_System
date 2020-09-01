@@ -40,4 +40,9 @@ public class LocationServiceImpl implements LocationService {
     public List<Location> queryLocations() {
         return locationDao.queryLocations();
     }
+
+    @Override
+    public Integer queryIdByLocation(String location) {
+        return locationDao.queryIdByLocation(location);
+    }
 }

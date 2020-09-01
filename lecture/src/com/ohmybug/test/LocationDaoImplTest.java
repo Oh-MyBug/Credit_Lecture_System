@@ -13,7 +13,10 @@ public class LocationDaoImplTest {
 
     @Test
     public void addLocation() {
-        locationDao.addLocation(new Location(null, "asdasd"));
+        locationDao.addLocation(new Location(null, "汇文楼"));
+        locationDao.addLocation(new Location(null, "汇紫楼"));
+        locationDao.addLocation(new Location(null, "汇星楼"));
+        locationDao.addLocation(new Location(null, "汇智楼"));
     }
 
     @Test

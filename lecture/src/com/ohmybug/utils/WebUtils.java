@@ -1,7 +1,12 @@
 package com.ohmybug.utils;
 
 import org.apache.commons.beanutils.BeanUtils;
+import org.apache.commons.beanutils.ConvertUtils;
+import org.apache.commons.beanutils.Converter;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Map;
 
 /**
@@ -11,8 +16,18 @@ import java.util.Map;
  * version:     V1.0
  */
 public class WebUtils {
-    public static <T> T copyParamToBean(Map value, T bean){
+    public static <T> T copyParamToBean(Map value, T bean) {
         try {
+            ConvertUtils.register((aClass, o) -> {
+                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
+                Date date = null;
+                try {
+                    date = format.parse(o.toString());
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                return date;
+            }, Date.class);
             BeanUtils.populate(bean, value);
         } catch (Exception e) {
             e.printStackTrace();

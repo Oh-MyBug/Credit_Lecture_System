@@ -32,7 +32,7 @@ public class TypeDaoImpl extends BaseDao implements TypeDao {
 
     @Override
     public Type queryTypeById(Integer id) {
-        String sql = "select `id`, 'type' from `lecture_type` where id = ?";
+        String sql = "select `id`, `type` from `lecture_type` where id = ?";
         return queryForOne(Type.class, sql, id);
     }
 
@@ -40,5 +40,11 @@ public class TypeDaoImpl extends BaseDao implements TypeDao {
     public List<Type> queryTypes() {
         String sql = "select `id`, `type` from `lecture_type`";
         return queryForList(Type.class, sql);
+    }
+
+    @Override
+    public Integer queryIdByType(String type) {
+        String sql = "select `id` from `lecture_type` where `type` = ?";
+        return (Integer) queryForSingleValue(sql, type);
     }
 }

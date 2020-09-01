@@ -14,4 +14,6 @@ public interface TypeService {
     Type queryTypeById(Integer id);
 
     List<Type> queryTypes();
+
+    Integer queryIdByType(String type);
 }

@@ -1,6 +1,6 @@
 package com.ohmybug.pojo;
 
-import java.sql.Date;
+import java.util.Date;
 
 /**
  * ClassName:   Lecture
@@ -12,11 +12,11 @@ public class Lecture {
     private Integer id;
     private String title;
     private String type;
-    private Integer status;
+    private String status;
     private String speaker;
     private String location;
     private Date time;
-    private String speakerIntroduction;
+    private String speaker_introduction;
     private String content;
     private Integer yingshu1;
     private Integer yingshu2;
@@ -43,8 +43,8 @@ public class Lecture {
     private Integer shushi3;
     private Integer shushi4;
 
-    public Lecture(Integer id, String title, String type, Integer status, String speaker, String location, Date time,
-                   String speakerIntroduction, String content, Integer yingshu1, Integer yingshu2, Integer yingshu3,
+    public Lecture(Integer id, String title, String type, String status, String speaker, String location, Date time,
+                   String speaker_introduction, String content, Integer yingshu1, Integer yingshu2, Integer yingshu3,
                    Integer yingshu4, Integer tongji1, Integer tongji2, Integer tongji3, Integer tongji4,
                    Integer xinji1, Integer xinji2, Integer xinji3, Integer xinji4, Integer shuji1, Integer shuji2,
                    Integer shuji3, Integer shuji4, Integer shujin1, Integer shujin2, Integer shujin3, Integer shujin4
@@ -56,7 +56,7 @@ public class Lecture {
         this.speaker = speaker;
         this.location = location;
         this.time = time;
-        this.speakerIntroduction = speakerIntroduction;
+        this.speaker_introduction = speaker_introduction;
         this.content = content;
         this.yingshu1 = yingshu1;
         this.yingshu2 = yingshu2;
@@ -87,25 +87,17 @@ public class Lecture {
     public Lecture() {
     }
 
-    public String getSpeaker() {
-        return speaker;
-    }
-
-    public void setSpeaker(String speaker) {
-        this.speaker = speaker;
-    }
-
     @Override
     public String toString() {
         return "Lecture{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", type='" + type + '\'' +
-                ", status=" + status +
+                ", status='" + status + '\'' +
                 ", speaker='" + speaker + '\'' +
                 ", location='" + location + '\'' +
                 ", time=" + time +
-                ", speakerIntroduction='" + speakerIntroduction + '\'' +
+                ", speaker_introduction='" + speaker_introduction + '\'' +
                 ", content='" + content + '\'' +
                 ", yingshu1=" + yingshu1 +
                 ", yingshu2=" + yingshu2 +
@@ -158,12 +150,20 @@ public class Lecture {
         this.type = type;
     }
 
-    public Integer getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(Integer status) {
+    public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getSpeaker() {
+        return speaker;
+    }
+
+    public void setSpeaker(String speaker) {
+        this.speaker = speaker;
     }
 
     public String getLocation() {
@@ -182,12 +182,12 @@ public class Lecture {
         this.time = time;
     }
 
-    public String getSpeakerIntroduction() {
-        return speakerIntroduction;
+    public String getSpeaker_introduction() {
+        return speaker_introduction;
     }
 
-    public void setSpeakerIntroduction(String speakerIntroduction) {
-        this.speakerIntroduction = speakerIntroduction;
+    public void setSpeaker_introduction(String speaker_introduction) {
+        this.speaker_introduction = speaker_introduction;
     }
 
     public String getContent() {

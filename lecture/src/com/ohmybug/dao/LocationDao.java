@@ -15,4 +15,6 @@ public interface LocationDao {
     Location queryLocationById(Integer id);
 
     List<Location> queryLocations();
+
+    Integer queryIdByLocation(String location);
 }

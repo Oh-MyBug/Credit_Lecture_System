@@ -21,7 +21,7 @@ public class LectureDaoImpl extends BaseDao implements LectureDao {
                 "`shujin4`, `shushi1`, `shushi2`, `shushi3`, `shushi4`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, " +
                 "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         return update(sql, lecture.getTitle(), lecture.getType(), lecture.getStatus(), lecture.getSpeaker(),
-                lecture.getLocation(), lecture.getTime(), lecture.getSpeakerIntroduction(), lecture.getContent(),
+                lecture.getLocation(), lecture.getTime(), lecture.getSpeaker_introduction(), lecture.getContent(),
                 lecture.getYingshu1(), lecture.getYingshu2(), lecture.getYingshu3(), lecture.getYingshu4(),
                 lecture.getTongji1(), lecture.getTongji2(), lecture.getTongji3(), lecture.getTongji4(),
                 lecture.getXinji1(), lecture.getXinji2(), lecture.getXinji3(), lecture.getXinji4(),
@@ -45,7 +45,7 @@ public class LectureDaoImpl extends BaseDao implements LectureDao {
                 "`shuji1` = ?, `shuji2` = ?, `shuji3` = ?, `shuji4` = ?, `shujin1` = ?, `shujin2` = ?, `shujin3` = ?," +
                 " `shujin4` = ?, `shushi1` = ?, `shushi2` = ?, `shushi3` = ?, `shushi4` = ? where id = ?";
         return update(sql, lecture.getTitle(), lecture.getType(), lecture.getStatus(), lecture.getSpeaker(),
-                lecture.getLocation(), lecture.getTime(), lecture.getSpeakerIntroduction(), lecture.getContent(),
+                lecture.getLocation(), lecture.getTime(), lecture.getSpeaker_introduction(), lecture.getContent(),
                 lecture.getYingshu1(), lecture.getYingshu2(), lecture.getYingshu3(), lecture.getYingshu4(),
                 lecture.getTongji1(), lecture.getTongji2(), lecture.getTongji3(), lecture.getTongji4(),
                 lecture.getXinji1(), lecture.getXinji2(), lecture.getXinji3(), lecture.getXinji4(),

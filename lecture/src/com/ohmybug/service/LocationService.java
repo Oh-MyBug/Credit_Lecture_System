@@ -14,4 +14,6 @@ public interface LocationService {
     Location queryLocationById(Integer id);
 
     List<Location> queryLocations();
+
+    Integer queryIdByLocation(String location);
 }

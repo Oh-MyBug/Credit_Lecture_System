@@ -8,22 +8,7 @@
 <body>
 <%@include file="/pages/commom/navbar-header.jsp"%>
 
-<div class="container">
-    <ul class="nav nav-tabs">
-        <li class="nav-item">
-            <a class="nav-link" href="manager/lectureServlet?action=list">讲座信息管理</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="pages/admin/lecture_type.jsp">讲座类型管理</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="pages/admin/lecture_location.jsp">讲座地点管理</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link active" href="pages/admin/student_manage.jsp">学生信息管理</a>
-        </li>
-    </ul>
-</div>
+<%@include file="/pages/commom/nav-tabs.jsp"%>
 
 <div class="container"><br>
 

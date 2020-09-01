@@ -10,9 +10,9 @@ public class TypeDaoImplTest {
 
     @Test
     public void addType() {
-        typeDao.addType(new Type(null, "类型2"));
-        typeDao.addType(new Type(null, "类型3"));
-        typeDao.addType(new Type(null, "类型4"));
+        typeDao.addType(new Type(null, "数学与统计学院大学数学系列讲座"));
+        typeDao.addType(new Type(null, "数学与统计学院本科生学术讲座"));
+        typeDao.addType(new Type(null, "数学与统计学院本科生生涯讲座"));
     }
 
     @Test
@@ -22,7 +22,7 @@ public class TypeDaoImplTest {
 
     @Test
     public void updateType() {
-        typeDao.updateType(new Type(4, "类型5"));
+        typeDao.updateType(new Type(4, "数学与统计学院大学数学系列讲座"));
     }
 
     @Test

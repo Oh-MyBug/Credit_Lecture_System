@@ -42,4 +42,10 @@ public class LocationDaoImpl extends BaseDao implements LocationDao {
         String sql = "select `id`, `location` from `lecture_location`";
         return queryForList(Location.class, sql);
     }
+
+    @Override
+    public Integer queryIdByLocation(String location) {
+        String sql = "select `id` from `lecture_location` where `location` = ?";
+        return (Integer) queryForSingleValue(sql, location);
+    }
 }

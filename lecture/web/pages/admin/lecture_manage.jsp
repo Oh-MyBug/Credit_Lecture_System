@@ -10,22 +10,7 @@
 
 <%@include file="/pages/commom/navbar-header.jsp"%>
 
-<div class="container">
-    <ul class="nav nav-tabs">
-        <li class="nav-item">
-            <a class="nav-link active" href="manager/lectureServlet?action=list">讲座信息管理</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="pages/admin/lecture_type.jsp">讲座类型管理</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="pages/admin/lecture_location.jsp">讲座地点管理</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="pages/admin/student_manage.jsp">学生信息管理</a>
-        </li>
-    </ul>
-</div>
+<%@include file="/pages/commom/nav-tabs.jsp"%>
 
 <div class="container"><br>
 
@@ -34,7 +19,7 @@
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
-        <a type="button" class="btn btn-success" href="admin/typeServlet?action=addLectureList">新建</a>
+        <a type="button" class="btn btn-success" href="admin/lectureServlet?action=getSelectorList">新建</a>
     </nav>
 
     <table class="table table-hover">
@@ -57,8 +42,8 @@
             <td>${lecture.time}</td>
             <td>${lecture.location}</td>
             <td>
-                <a type="button" class="btn btn-secondary" href="lecture_edit.jsp">编辑</a>
-                <a type="button" class="btn btn-danger">删除</a>
+                <a type="button" class="btn btn-secondary" href="admin/lectureServlet?action=getLecture&id=${lecture.id}">编辑</a>
+                <a type="button" class="deleteClass btn btn-danger" href="admin/lectureServlet?action=delete&id=${lecture.id}">删除</a>
             </td>
         </tr>
         </c:forEach>
@@ -86,5 +71,13 @@
 </div>
 
 <%@include file="/pages/commom/footer.jsp"%>
+
+<script type="text/javascript">
+    $(function () {
+        $("a.deleteClass").click(function () {
+            return confirm("你确定要删除【" + $(this).parent().parent().find("td:first").text() + "】？")
+        });
+    });
+</script>
 </body>
 </html>

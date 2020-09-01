@@ -8,7 +8,7 @@ import java.util.List;
 public interface LectureDao {
     int addLecture(Lecture lecture);
 
-    int deleteLectureNyId(int id);
+    int deleteLectureById(int id);
 
     int updateLecture(Lecture lecture);
 

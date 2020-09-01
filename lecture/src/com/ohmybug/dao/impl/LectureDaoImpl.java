@@ -31,7 +31,7 @@ public class LectureDaoImpl extends BaseDao implements LectureDao {
     }
 
     @Override
-    public int deleteLectureNyId(int id) {
+    public int deleteLectureById(int id) {
         String sql = "delete from `lecture` where id = ?";
         return update(sql, id);
     }

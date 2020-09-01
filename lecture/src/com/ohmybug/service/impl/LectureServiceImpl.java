@@ -23,7 +23,7 @@ public class LectureServiceImpl implements LectureService {
 
     @Override
     public int deleteLectureById(Integer id) {
-        return lectureDao.deleteLectureNyId(id);
+        return lectureDao.deleteLectureById(id);
     }
 
     @Override

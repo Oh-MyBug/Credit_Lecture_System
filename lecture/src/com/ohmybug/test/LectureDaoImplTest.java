@@ -22,7 +22,7 @@ public class LectureDaoImplTest {
 
     @Test
     public void deleteLectureNyId() {
-        lectureDao.deleteLectureNyId(9);
+        lectureDao.deleteLectureById(9);
     }
 
     @Test

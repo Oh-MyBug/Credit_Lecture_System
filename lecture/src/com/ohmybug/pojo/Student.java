@@ -7,7 +7,8 @@ package com.ohmybug.pojo;
  * version:     V1.0
  */
 public class Student {
-    private String id;
+    private Integer id;
+    private String stu_id;
     private String name;
     private Integer sex;
     private String password;
@@ -17,9 +18,13 @@ public class Student {
     private String phone;
     private String email;
 
-    public Student(String id, String name, Integer sex, String password, String grade, String t_class,
-                   Integer certification, String phone, String email) {
+    public Student() {
+    }
+
+    public Student(Integer id, String stu_id, String name, Integer sex, String password, String grade, String t_class
+            , Integer certification, String phone, String email) {
         this.id = id;
+        this.stu_id = stu_id;
         this.name = name;
         this.sex = sex;
         this.password = password;
@@ -30,13 +35,11 @@ public class Student {
         this.email = email;
     }
 
-    public Student() {
-    }
-
     @Override
     public String toString() {
         return "Student{" +
-                "id='" + id + '\'' +
+                "id=" + id +
+                ", stu_id='" + stu_id + '\'' +
                 ", name='" + name + '\'' +
                 ", sex=" + sex +
                 ", password='" + password + '\'' +
@@ -48,12 +51,20 @@ public class Student {
                 '}';
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getStu_id() {
+        return stu_id;
+    }
+
+    public void setStu_id(String stu_id) {
+        this.stu_id = stu_id;
     }
 
     public String getName() {

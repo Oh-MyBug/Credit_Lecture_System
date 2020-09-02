@@ -74,4 +74,21 @@ public class LectureDaoImpl extends BaseDao implements LectureDao {
                 "`shujin4`, `shushi1`, `shushi2`, `shushi3`, `shushi4` from `lecture`";
         return queryForList(Lecture.class, sql);
     }
+
+    @Override
+    public Integer queryForPageTotalCount() {
+        String sql = "select count(*) from `lecture`";
+        Number count = (Number) queryForSingleValue(sql);
+        return count.intValue();
+    }
+
+    @Override
+    public List<Lecture> queryforPageItems(int begin, int pageSize) {
+        String sql = "select `id`, `title`, `type`, `status`, `speaker`, `location`, `time`, `speaker_introduction`, " +
+                "`content`, `yingshu1`, `yingshu2`, `yingshu3`, `yingshu4`, `tongji1`, `tongji2`, `tongji3`, " +
+                "`tongji4`,`xinji1`, `xinji2`, `xinji3`, `xinji4`, `shuji1`, `shuji2`, `shuji3`, `shuji4`, `shujin1`," +
+                " `shujin2`, `shujin3`, `shujin4`, `shushi1`, `shushi2`, `shushi3`, `shushi4` from `lecture` limit ?," +
+                " ?";
+        return queryForList(Lecture.class, sql, begin, pageSize);
+    }
 }

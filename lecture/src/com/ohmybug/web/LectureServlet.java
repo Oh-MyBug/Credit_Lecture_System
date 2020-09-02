@@ -1,9 +1,6 @@
 package com.ohmybug.web;
 
-import com.ohmybug.pojo.Lecture;
-import com.ohmybug.pojo.Location;
-import com.ohmybug.pojo.Status;
-import com.ohmybug.pojo.Type;
+import com.ohmybug.pojo.*;
 import com.ohmybug.service.LectureService;
 import com.ohmybug.service.LocationService;
 import com.ohmybug.service.TypeService;
@@ -28,6 +25,16 @@ public class LectureServlet extends BaseServlet {
     private final LectureService lectureService = new LectureServiceImpl();
     private final TypeService typeService = new TypeServiceImpl();
     private final LocationService locationService = new LocationServiceImpl();
+
+    protected void page(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
+            IOException {
+        int pageNo = WebUtils.parseInt(req.getParameter("pageNo"), 1);
+        int pageSize = WebUtils.parseInt(req.getParameter("pageSize"), Page.PAGE_SIZE);
+        Page<Lecture> page = lectureService.page(pageNo, pageSize);
+        page.setUrl("admin/lectureServlet?action=page&page=lecture");
+        req.setAttribute("page", page);
+        req.getRequestDispatcher("/pages/admin/lecture_manage.jsp").forward(req, resp);
+    }
 
     protected void getSelectorList(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
             IOException {

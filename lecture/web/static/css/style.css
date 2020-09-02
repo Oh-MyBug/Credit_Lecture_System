@@ -138,3 +138,8 @@ body.my-login-page {
 h3 {
     color: grey
 }
+
+#pn_input {
+    width: 30px;
+    text-align: center;
+}

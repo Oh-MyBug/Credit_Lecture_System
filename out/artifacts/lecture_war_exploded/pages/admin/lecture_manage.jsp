@@ -3,14 +3,14 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <%@include file="/pages/commom/header.jsp"%>
+    <%@include file="/pages/commom/header.jsp" %>
     <title>后台管理页面</title>
 </head>
 <body>
 
-<%@include file="/pages/commom/navbar-header.jsp"%>
+<%@include file="/pages/commom/navbar-header.jsp" %>
 
-<%@include file="/pages/commom/nav-tabs.jsp"%>
+<%@include file="/pages/commom/nav-tabs.jsp" %>
 
 <div class="container"><br>
 
@@ -34,43 +34,29 @@
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${requestScope.lectures}" var="lecture">
-        <tr align="center" valign="middle">
-            <th scope="row">${lecture.id}</th>
-            <td><a href="admin/lectureServlet?action=detail&id=${lecture.id}" target="_blank">${lecture.title}</a></td>
-            <td>${lecture.type}</td>
-            <td>${lecture.time}</td>
-            <td>${lecture.location}</td>
-            <td>
-                <a type="button" class="btn btn-secondary" href="admin/lectureServlet?action=getLecture&id=${lecture.id}">编辑</a>
-                <a type="button" class="deleteClass btn btn-danger" href="admin/lectureServlet?action=delete&id=${lecture.id}">删除</a>
-            </td>
-        </tr>
+        <c:forEach items="${requestScope.page.items}" var="lecture">
+            <tr align="center" valign="middle">
+                <th scope="row">${lecture.id}</th>
+                <td><a href="admin/lectureServlet?action=detail&id=${lecture.id}" target="_blank">${lecture.title}</a>
+                </td>
+                <td>${lecture.type}</td>
+                <td>${lecture.time}</td>
+                <td>${lecture.location}</td>
+                <td>
+                    <a type="button" class="btn btn-secondary"
+                       href="admin/lectureServlet?action=getLecture&id=${lecture.id}">编辑</a>
+                    <a type="button" class="deleteClass btn btn-danger"
+                       href="admin/lectureServlet?action=delete&id=${lecture.id}">删除</a>
+                </td>
+            </tr>
         </c:forEach>
         </tbody>
     </table>
 
-    <nav aria-label="...">
-        <ul class="pagination justify-content-center">
-            <li class="page-item disabled">
-                <span class="page-link">Previous</span>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item active" aria-current="page">
-      <span class="page-link">
-        2
-        <span class="sr-only">(current)</span>
-      </span>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-                <a class="page-link" href="#">Next</a>
-            </li>
-        </ul>
-    </nav>
+    <%@include file="/pages/commom/page_nav.jsp"%>
 </div>
 
-<%@include file="/pages/commom/footer.jsp"%>
+<%@include file="/pages/commom/footer.jsp" %>
 
 <script type="text/javascript">
     $(function () {

@@ -3,6 +3,7 @@ package com.ohmybug.service.impl;
 import com.ohmybug.dao.LectureDao;
 import com.ohmybug.dao.impl.LectureDaoImpl;
 import com.ohmybug.pojo.Lecture;
+import com.ohmybug.pojo.Page;
 import com.ohmybug.service.LectureService;
 
 import java.util.List;
@@ -39,5 +40,26 @@ public class LectureServiceImpl implements LectureService {
     @Override
     public List<Lecture> queryLectures() {
         return lectureDao.queryLectures();
+    }
+
+    @Override
+    public Page<Lecture> page(int pageNo, int pageSize) {
+        Page<Lecture> page = new Page<>();
+
+        page.setPageSize(pageSize);
+
+        Integer pageTotalCount = lectureDao.queryForPageTotalCount();
+        page.setPageTotalCount(pageTotalCount);
+
+        int pageTotal = pageTotalCount % pageSize > 0 ? pageTotalCount / pageSize + 1 : pageTotalCount / pageSize;
+        page.setPageTotal(pageTotal);
+
+        page.setPageNo(pageNo);
+
+        int begin = (page.getPageNo() - 1) * pageSize;
+        List<Lecture> items = lectureDao.queryforPageItems(begin, pageSize);
+        page.setItems(items);
+
+        return page;
     }
 }

@@ -10,7 +10,7 @@
     <ul class="nav nav-tabs">
         <li class="nav-item">
             <a class="nav-link ${param.page eq "lecture" ? "active" : ""}"
-               href="admin/lectureServlet?action=list&page=lecture">讲座信息管理</a>
+               href="admin/lectureServlet?action=page&page=lecture&pageNo=1">讲座信息管理</a>
         </li>
         <li class="nav-item">
             <a class="nav-link ${param.page eq "type" ? "active" : ""}" href="admin/typeServlet?action=list&page=type">讲座类型管理</a>

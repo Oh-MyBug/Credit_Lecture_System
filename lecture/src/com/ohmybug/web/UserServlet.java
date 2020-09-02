@@ -40,7 +40,7 @@ public class UserServlet extends BaseServlet {
             req.setAttribute("msg", "用户名或密码错误");
             req.getRequestDispatcher("/index.jsp").forward(req, resp);
         } else {
-            req.getRequestDispatcher("admin/lectureServlet?action=list&page=lecture").forward(req, resp);
+            req.getRequestDispatcher("admin/lectureServlet?action=page&page=lecture").forward(req, resp);
         }
     }
 }

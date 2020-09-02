@@ -15,4 +15,8 @@ public interface LectureDao {
     Lecture queryLectureById(Integer id);
 
     List<Lecture> queryLectures();
+
+    Integer queryForPageTotalCount();
+
+    List<Lecture> queryforPageItems(int begin, int pageSize);
 }

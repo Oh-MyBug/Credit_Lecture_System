@@ -61,13 +61,13 @@ public class LectureServlet extends BaseServlet {
     protected void update(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Lecture lecture = WebUtils.copyParamToBean(req.getParameterMap(), new Lecture());
         lectureService.updateLecture(lecture);
-        resp.sendRedirect(req.getContextPath() + "/admin/lectureServlet?action=list&page=lecture");
+        resp.sendRedirect(req.getContextPath() + "/admin/lectureServlet?action=page&page=lecture");
     }
 
     protected void delete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int id = WebUtils.parseInt(req.getParameter("id"), 0);
         lectureService.deleteLectureById(id);
-        resp.sendRedirect(req.getContextPath() + "/admin/lectureServlet?action=list&page=lecture");
+        resp.sendRedirect(req.getContextPath() + "/admin/lectureServlet?action=page&page=lecture");
     }
 
     protected void getLecture(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

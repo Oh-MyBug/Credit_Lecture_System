@@ -77,9 +77,6 @@ public class LectureServlet extends BaseServlet {
         Integer id = WebUtils.parseInt(req.getParameter("id"), 0);
         Lecture lecture = lectureService.queryLectureById(id);
         req.setAttribute("lecture", lecture);
-//        String[] time = lecture.getTime().toString().split(" ");
-//        StringBuilder sb = new StringBuilder();
-//        req.setAttribute("time", sb.append(time[0]).append("T").append(time[1]).toString());
         req.getRequestDispatcher("/pages/lecture/lecture_msg.jsp").forward(req, resp);
     }
 

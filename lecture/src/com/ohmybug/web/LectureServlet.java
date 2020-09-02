@@ -43,6 +43,7 @@ public class LectureServlet extends BaseServlet {
         Lecture lecture = WebUtils.copyParamToBean(req.getParameterMap(), new Lecture());
         int addLecture = lectureService.addLecture(lecture);
         if (addLecture == -1) {
+            lecture.setId(null);
             req.setAttribute("lecture", lecture);
             req.getRequestDispatcher("lectureServlet?action=getSelectorList").forward(req, resp);
         } else {
@@ -70,6 +71,16 @@ public class LectureServlet extends BaseServlet {
         StringBuilder sb = new StringBuilder();
         req.setAttribute("time", sb.append(time[0]).append("T").append(time[1]).toString());
         getSelectorList(req, resp);
+    }
+
+    protected void detail(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        Integer id = WebUtils.parseInt(req.getParameter("id"), 0);
+        Lecture lecture = lectureService.queryLectureById(id);
+        req.setAttribute("lecture", lecture);
+//        String[] time = lecture.getTime().toString().split(" ");
+//        StringBuilder sb = new StringBuilder();
+//        req.setAttribute("time", sb.append(time[0]).append("T").append(time[1]).toString());
+        req.getRequestDispatcher("/pages/lecture/lecture_msg.jsp").forward(req, resp);
     }
 
     protected void list(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

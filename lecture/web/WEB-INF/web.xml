@@ -39,4 +39,13 @@
         <servlet-name>TypeServlet</servlet-name>
         <url-pattern>/admin/typeServlet</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>StudentServlet</servlet-name>
+        <servlet-class>com.ohmybug.web.StudentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>StudentServlet</servlet-name>
+        <url-pattern>/admin/studentServlet</url-pattern>
+    </servlet-mapping>
 </web-app>

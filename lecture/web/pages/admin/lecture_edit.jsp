@@ -5,7 +5,6 @@
 <head>
     <%@include file="/pages/commom/header.jsp" %>
     <title>讲座信息编辑页面</title>
-
 </head>
 <body>
 

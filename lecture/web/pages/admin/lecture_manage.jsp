@@ -37,7 +37,7 @@
         <c:forEach items="${requestScope.lectures}" var="lecture">
         <tr align="center" valign="middle">
             <th scope="row">${lecture.id}</th>
-            <td><a href="pages/lecture/lecture_msg.jsp" target="_blank">${lecture.title}</a></td>
+            <td><a href="admin/lectureServlet?action=detail&id=${lecture.id}" target="_blank">${lecture.title}</a></td>
             <td>${lecture.type}</td>
             <td>${lecture.time}</td>
             <td>${lecture.location}</td>

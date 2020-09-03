@@ -13,7 +13,7 @@
     <title>学生信息编辑页面</title>
 </head>
 <body>
-<%@include file="/pages/commom/navbar-header.jsp" %>
+<%@include file="/pages/commom/navbar_header.jsp" %>
 <div class="container">
     <div class="bg-light">
         <div align="center"><br>
@@ -21,6 +21,7 @@
         </div>
 
         <form class="maginDiv needs-validation was-validated" action="admin/studentServlet" method="post">
+            <input type="hidden" name="id" value="${param.pageNo}">
             <input type="hidden" name="action" value="${empty param.id ? "add" : "update"}">
             <input type="hidden" name="id" value="${requestScope.student.id}">
 

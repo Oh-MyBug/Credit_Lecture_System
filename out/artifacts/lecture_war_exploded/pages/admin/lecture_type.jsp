@@ -8,9 +8,9 @@
 </head>
 <body>
 
-<%@include file="/pages/commom/navbar-header.jsp" %>
+<%@include file="/pages/commom/navbar_header.jsp" %>
 
-<%@include file="/pages/commom/nav-tabs.jsp" %>
+<%@include file="/pages/commom/nav_tabs_admin.jsp" %>
 
 <div class="container"><br>
 

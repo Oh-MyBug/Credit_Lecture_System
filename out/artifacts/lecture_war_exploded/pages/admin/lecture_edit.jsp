@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<%@include file="/pages/commom/navbar-header.jsp" %>
+<%@include file="/pages/commom/navbar_header.jsp" %>
 
 <div class="container">
     <div class="bg-light">
@@ -17,6 +17,7 @@
         </div>
 
         <form class="maginDiv needs-validation was-validated" action="admin/lectureServlet" method="post">
+            <input type="hidden" name="pageNo" value="${param.pageNo}">
             <input type="hidden" name="action" value="${empty param.id ? "add" : "update"}">
             <input type="hidden" name="id" value="${requestScope.lecture.id}">
             <div class="form-row">
@@ -86,16 +87,14 @@
             <!--主讲人介绍-->
             <div class="form-group">
                 <label for="speaker_introduction">主讲人介绍:</label>
-                <textarea class="form-control" id="speaker_introduction" rows="3" name="speaker_introduction">
-                    ${requestScope.lecture.speaker_introduction}
-                </textarea>
+                <textarea class="form-control" id="speaker_introduction" rows="3"
+                          name="speaker_introduction">${requestScope.lecture.speaker_introduction}</textarea>
             </div>
             <!--讲座内容-->
             <div class="form-group">
                 <label for="content">讲座内容:</label>
-                <textarea class="form-control" id="content" rows="3" name="content" required>
-                    ${requestScope.lecture.content}
-                </textarea>
+                <textarea class="form-control" id="content" rows="3" name="content"
+                          required>${requestScope.lecture.content}</textarea>
                 <div class="invalid-feedback">
                     讲座内容不能为空
                 </div>
@@ -239,7 +238,8 @@
             </div>
             <div align="center">
                 <button type="submit" class="btn btn-primary">提交</button>
-                <a type="button" class="${empty param.id ? "backClass" : ""} btn btn-secondary" href="admin/lectureServlet?action=list&page=lecture">返回</a>
+                <a type="button" class="${empty param.id ? "backClass" : ""} btn btn-secondary"
+                   href="admin/lectureServlet?action=list&page=lecture">返回</a>
             </div>
             <br>
         </form>

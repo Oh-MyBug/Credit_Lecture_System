@@ -1,5 +1,6 @@
 package com.ohmybug.service;
 
+import com.ohmybug.pojo.Page;
 import com.ohmybug.pojo.Student;
 
 import java.util.List;
@@ -14,4 +15,6 @@ public interface StudentService {
     Student queryStudentById(Integer id);
 
     List<Student> queryStudents();
+
+    Page<Student> page(int pageNo, int pageSize);
 }

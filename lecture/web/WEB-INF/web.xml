@@ -48,4 +48,14 @@
         <servlet-name>StudentServlet</servlet-name>
         <url-pattern>/admin/studentServlet</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ClientLectureServlet</servlet-name>
+        <servlet-class>com.ohmybug.web.ClientLectureServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ClientLectureServlet</servlet-name>
+        <url-pattern>/client/clientLectureServlet</url-pattern>
+    </servlet-mapping>
+
 </web-app>

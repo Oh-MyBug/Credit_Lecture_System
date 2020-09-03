@@ -7,9 +7,9 @@
     <title>后台学生信息管理</title>
 </head>
 <body>
-<%@include file="/pages/commom/navbar-header.jsp" %>
+<%@include file="/pages/commom/navbar_header.jsp" %>
 
-<%@include file="/pages/commom/nav-tabs.jsp" %>
+<%@include file="/pages/commom/nav_tabs_admin.jsp" %>
 
 <div class="container"><br>
     <nav class="navbar">
@@ -17,7 +17,8 @@
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
-        <a type="button" class="btn btn-success" href="admin/studentServlet?action=getSelectorList">新建</a>
+        <a type="button" class="btn btn-success"
+           href="admin/studentServlet?action=getSelectorList&pageNo=${requestScope.page.pageNo}">新建</a>
     </nav>
 
     <table class="table table-hover">
@@ -34,7 +35,7 @@
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${requestScope.students}" var="student">
+        <c:forEach items="${requestScope.page.items}" var="student">
             <tr align="center" valign="middle">
                 <th scope="row">${student.stu_id}</th>
                 <td><a target="_blank">${student.name}</a></td>
@@ -44,32 +45,17 @@
                 <td>${student.t_class}</td>
                 <td>${student.certification}</td>
                 <td>
-                    <a type="button" class="btn btn-secondary" href="admin/studentServlet?action=getStudent&id=${student.id}">编辑</a>
-                    <a type="button" class="btn btn-danger" href="admin/studentServlet?action=delete&id=${student.id}">删除</a>
+                    <a type="button" class="btn btn-secondary"
+                       href="admin/studentServlet?action=getStudent&id=${student.id}&pageNo=${requestScope.page.pageNo}">编辑</a>
+                    <a type="button" class="btn btn-danger"
+                       href="admin/studentServlet?action=delete&id=${student.id}&pageNo=${requestScope.page.pageNo}">删除</a>
                 </td>
             </tr>
         </c:forEach>
         </tbody>
     </table>
 
-    <nav aria-label="...">
-        <ul class="pagination justify-content-center">
-            <li class="page-item disabled">
-                <span class="page-link">Previous</span>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item active" aria-current="page">
-      <span class="page-link">
-        2
-        <span class="sr-only">(current)</span>
-      </span>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-                <a class="page-link" href="#">Next</a>
-            </li>
-        </ul>
-    </nav>
+    <%@include file="/pages/commom/page_nav.jsp" %>
 </div>
 
 <%@include file="/pages/commom/footer.jsp" %>

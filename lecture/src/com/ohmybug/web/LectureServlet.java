@@ -54,20 +54,22 @@ public class LectureServlet extends BaseServlet {
             req.setAttribute("lecture", lecture);
             req.getRequestDispatcher("lectureServlet?action=getSelectorList").forward(req, resp);
         } else {
-            resp.sendRedirect(req.getContextPath() + "/admin/lectureServlet?action=list&page=lecture");
+            int pageNo = WebUtils.parseInt(req.getParameter("pageNo"), 0);
+            pageNo += 1;
+            resp.sendRedirect(req.getContextPath() + "/admin/lectureServlet?action=page&page=lecture&pageNo=" + pageNo);
         }
     }
 
     protected void update(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Lecture lecture = WebUtils.copyParamToBean(req.getParameterMap(), new Lecture());
         lectureService.updateLecture(lecture);
-        resp.sendRedirect(req.getContextPath() + "/admin/lectureServlet?action=page&page=lecture");
+        resp.sendRedirect(req.getContextPath() + "/admin/lectureServlet?action=page&page=lecture&pageNo=" + req.getParameter("pageNo"));
     }
 
     protected void delete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int id = WebUtils.parseInt(req.getParameter("id"), 0);
         lectureService.deleteLectureById(id);
-        resp.sendRedirect(req.getContextPath() + "/admin/lectureServlet?action=page&page=lecture");
+        resp.sendRedirect(req.getContextPath() + "/admin/lectureServlet?action=page&page=lecture&pageNo=" + req.getParameter("pageNo"));
     }
 
     protected void getLecture(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

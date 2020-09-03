@@ -21,7 +21,7 @@
         </li>
         <li class="nav-item">
             <a class="nav-link ${param.page eq "student" ? "active" : ""}"
-               href="admin/studentServlet?action=list&page=student">学生信息管理</a>
+               href="admin/studentServlet?action=page&page=student">学生信息管理</a>
         </li>
     </ul>
 </div>

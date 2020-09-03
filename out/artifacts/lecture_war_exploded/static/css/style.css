@@ -143,3 +143,13 @@ h3 {
     width: 30px;
     text-align: center;
 }
+
+.circle_icon {
+    width: 34px;
+    height: 34px;
+    display: flex;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}

@@ -8,7 +8,7 @@
 
 <body class="my-login-page">
 
-<%@include file="/pages/commom/navbar-header.jsp" %>
+<%@include file="/pages/commom/navbar_header.jsp" %>
 
 <div class="container">
     <div class="bg-primary">
@@ -24,12 +24,12 @@
                         <div class="msg_cont">
                             <b></b>
                             <span class="errorMsg">
-<%--                                <%=request.getAttribute("msg") == null ? "请输入用户名和密码" : request.getAttribute("msg")%>--%>
                                 ${empty requestScope.msg ? "请输入用户名和密码" : requestScope.msg}
                             </span>
-                        </div><br>
+                        </div>
+                        <br>
                         <form action="userServlet" method="post">
-                            <input type="hidden" name="action" value="adminLogin">
+                            <input id="login_method" type="hidden" name="action" value="clientLogin">
                             <div class="form-group">
                                 <label for="name">学号 / 管理员账号：</label>
                                 <input id="name" type="text" class="form-control" name="name"
@@ -61,10 +61,11 @@
 
                             <div class="row">
                                 <div class="col-4">
-                                    <label><input name="login_type" type="radio" value="0"/> 学生</label>
+                                    <label><input id="student" name="login_type" type="radio" value="0" checked/>
+                                        学生</label>
                                 </div>
                                 <div class="col-4">
-                                    <label><input name="login_type" type="radio" value="1"/> 管理员</label>
+                                    <label><input id="admin" name="login_type" type="radio" value="1"/>管理员</label>
                                 </div>
                             </div>
 
@@ -82,6 +83,19 @@
     </div>
 </div>
 
-<%@include file="/pages/commom/footer.jsp"%>
+<%@include file="/pages/commom/footer.jsp" %>
+
+<script type="text/javascript">
+    $(function () {
+        $('input:radio[name="login_type"]').click(function () {
+            var login_type = $(this).val();
+            if (login_type === "0") {
+                $("#login_method").val("clientLogin");
+            } else if (login_type === "1") {
+                $("#login_method").val("adminLogin");
+            }
+        });
+    })
+</script>
 </body>
 </html>

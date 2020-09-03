@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<%@include file="/pages/commom/navbar-header.jsp"%>
+<%@include file="/pages/commom/navbar_header.jsp"%>
 
 <div class="container">
     <div><br>

@@ -8,9 +8,9 @@
 </head>
 <body>
 
-<%@include file="/pages/commom/navbar-header.jsp" %>
+<%@include file="/pages/commom/navbar_header.jsp" %>
 
-<%@include file="/pages/commom/nav-tabs.jsp" %>
+<%@include file="/pages/commom/nav_tabs_admin.jsp" %>
 
 <div class="container"><br>
 
@@ -19,7 +19,7 @@
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
-        <a type="button" class="btn btn-success" href="admin/lectureServlet?action=getSelectorList">新建</a>
+        <a type="button" class="btn btn-success" href="admin/lectureServlet?action=getSelectorList&pageNo=${requestScope.page.pageNo}">新建</a>
     </nav>
 
     <table class="table table-hover">
@@ -44,16 +44,16 @@
                 <td>${lecture.location}</td>
                 <td>
                     <a type="button" class="btn btn-secondary"
-                       href="admin/lectureServlet?action=getLecture&id=${lecture.id}">编辑</a>
+                       href="admin/lectureServlet?action=getLecture&id=${lecture.id}&pageNo=${requestScope.page.pageNo}">编辑</a>
                     <a type="button" class="deleteClass btn btn-danger"
-                       href="admin/lectureServlet?action=delete&id=${lecture.id}">删除</a>
+                       href="admin/lectureServlet?action=delete&id=${lecture.id}&pageNo=${requestScope.page.pageNo}">删除</a>
                 </td>
             </tr>
         </c:forEach>
         </tbody>
     </table>
 
-    <%@include file="/pages/commom/page_nav.jsp"%>
+    <%@include file="/pages/commom/page_nav.jsp" %>
 </div>
 
 <%@include file="/pages/commom/footer.jsp" %>

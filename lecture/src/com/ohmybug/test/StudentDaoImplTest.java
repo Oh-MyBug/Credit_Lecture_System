@@ -12,7 +12,7 @@ public class StudentDaoImplTest {
 
     @Test
     public void addStudent() {
-        for (int i = 30; i < 100; i++) {
+        for (int i = 00; i < 100; i++) {
             studentDao.addStudent(new Student(null, "20171911" + i, "李聪", 0, "08021133", "2017", "数计班", 12, "13411212816", "2017191123@email.szu.edu.cn"));
         }
     }

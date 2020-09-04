@@ -43,31 +43,30 @@
         <c:forEach items="${requestScope.page.items}" var="lecture">
             <tr align="center" valign="middle">
                 <th scope="row">${lecture.id}</th>
-                <td><a href="client/clientLectureServlet?action=detail&id=${lecture.id}" target="_blank">${lecture.title}</a>
+                <td><a href="client/clientLectureServlet?action=detail&id=${lecture.id}"
+                       target="_blank">${lecture.title}</a>
                 </td>
                 <td>${lecture.type}</td>
                 <td>${lecture.time}</td>
                 <td>${lecture.location}</td>
                 <td>
-                    <a type="button" class="btn btn-secondary"
-                       href="client/clientLectureServlet?action=getLecture&id=${lecture.id}">预约</a>
+                    <c:if test="${not lecture.reserve}">
+                        <a type="button" class="btn btn-success"
+                           href="client/clientReservationServlet?action=reserve&lectureId=${lecture.id}&studentId=${sessionScope.user.id}">预约讲座</a>
+                    </c:if>
+                    <c:if test="${lecture.reserve}">
+                        <a type="button" class="btn btn-secondary"
+                           href="client/clientReservationServlet?action=cancelReserve&lectureId=${lecture.id}&studentId=${sessionScope.user.id}">取消预约</a>
+                    </c:if>
                 </td>
             </tr>
         </c:forEach>
         </tbody>
     </table>
 
-    <%@include file="/pages/commom/page_nav.jsp"%>
+    <%@include file="/pages/commom/page_nav.jsp" %>
 </div>
 
 <%@include file="/pages/commom/footer.jsp" %>
-
-<script type="text/javascript">
-    $(function () {
-        $("a.deleteClass").click(function () {
-            return confirm("你确定要删除【" + $(this).parent().parent().find("td:first").text() + "】？")
-        });
-    });
-</script>
 </body>
 </html>

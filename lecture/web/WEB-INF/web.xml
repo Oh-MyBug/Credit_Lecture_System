@@ -58,4 +58,21 @@
         <url-pattern>/client/clientLectureServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>ClientReservationServlet</servlet-name>
+        <servlet-class>com.ohmybug.web.ClientReservationServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ClientReservationServlet</servlet-name>
+        <url-pattern>/client/clientReservationServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ReservationServlet</servlet-name>
+        <servlet-class>com.ohmybug.web.ReservationServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ReservationServlet</servlet-name>
+        <url-pattern>/admin/reservationServlet</url-pattern>
+    </servlet-mapping>
 </web-app>

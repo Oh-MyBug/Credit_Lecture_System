@@ -9,11 +9,12 @@
 <div class="container">
     <ul class="nav nav-tabs">
         <li class="nav-item">
-            <a class="nav-link ${param.page eq "lecture" ? "active" : ""}"
-               href="admin/lectureServlet?action=page&page=lecture&pageNo=1">讲座信息查询</a>
+            <a class="nav-link ${param.page eq "clientLecture" ? "active" : ""}"
+               href="client/clientLectureServlet?action=page&page=clientLecture&pageNo=1">讲座信息查询</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link ${param.page eq "type" ? "active" : ""}" href="admin/typeServlet?action=list&page=type">我的讲座</a>
+            <a class="nav-link ${param.page eq "clientReservation" ? "active" : ""}"
+               href="client/clientReservationServlet?action=page&page=clientReservation">我的讲座</a>
         </li>
     </ul>
 </div>

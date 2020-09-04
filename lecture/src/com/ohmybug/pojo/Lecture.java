@@ -42,6 +42,7 @@ public class Lecture {
     private Integer shushi2;
     private Integer shushi3;
     private Integer shushi4;
+    private Boolean reserve;
 
     public Lecture(Integer id, String title, String type, String status, String speaker, String location, Date time,
                    String speaker_introduction, String content, Integer yingshu1, Integer yingshu2, Integer yingshu3,
@@ -87,6 +88,14 @@ public class Lecture {
     public Lecture() {
     }
 
+    public Boolean getReserve() {
+        return reserve;
+    }
+
+    public void setReserve(Boolean reserve) {
+        this.reserve = reserve;
+    }
+
     @Override
     public String toString() {
         return "Lecture{" +
@@ -123,6 +132,7 @@ public class Lecture {
                 ", shushi2=" + shushi2 +
                 ", shushi3=" + shushi3 +
                 ", shushi4=" + shushi4 +
+                ", reserve=" + reserve +
                 '}';
     }
 

@@ -59,7 +59,7 @@ public class UserServlet extends BaseServlet {
             req.getRequestDispatcher("/index.jsp").forward(req, resp);
         } else {
             req.getSession().setAttribute("user", loginClient);
-            req.getRequestDispatcher("client/clientLectureServlet?action=page&page=lecture").forward(req, resp);
+            req.getRequestDispatcher("client/clientLectureServlet?action=page&page=clientLecture").forward(req, resp);
         }
     }
 }

@@ -2,12 +2,12 @@ package com.ohmybug.web;
 
 import com.ohmybug.pojo.Lecture;
 import com.ohmybug.pojo.Page;
+import com.ohmybug.pojo.Reservation;
+import com.ohmybug.pojo.Student;
 import com.ohmybug.service.LectureService;
-import com.ohmybug.service.LocationService;
-import com.ohmybug.service.TypeService;
+import com.ohmybug.service.ReservationService;
 import com.ohmybug.service.impl.LectureServiceImpl;
-import com.ohmybug.service.impl.LocationServiceImpl;
-import com.ohmybug.service.impl.TypeServiceImpl;
+import com.ohmybug.service.impl.ReservationServletImpl;
 import com.ohmybug.utils.WebUtils;
 
 import javax.servlet.ServletException;
@@ -23,15 +23,21 @@ import java.io.IOException;
  */
 public class ClientLectureServlet extends BaseServlet {
     private final LectureService lectureService = new LectureServiceImpl();
-    private final TypeService typeService = new TypeServiceImpl();
-    private final LocationService locationService = new LocationServiceImpl();
+    private final ReservationService reservationService = new ReservationServletImpl();
 
     protected void page(HttpServletRequest req, HttpServletResponse resp) throws ServletException,
             IOException {
         int pageNo = WebUtils.parseInt(req.getParameter("pageNo"), 1);
         int pageSize = WebUtils.parseInt(req.getParameter("pageSize"), Page.PAGE_SIZE);
         Page<Lecture> page = lectureService.page(pageNo, pageSize);
-        page.setUrl("client/clientLectureServlet?action=page&page=lecture");
+        page.setUrl("client/clientLectureServlet?action=page&page=clientLecture");
+
+        Student student = (Student) req.getSession().getAttribute("user");
+        for (Lecture item : page.getItems()) {
+            Reservation reservation = reservationService.queryReservation(new Reservation(null, student.getId(),
+                    item.getId()));
+            item.setReserve(reservation != null);
+        }
         req.setAttribute("page", page);
         req.getRequestDispatcher("/pages/client/lecture_message.jsp").forward(req, resp);
     }
